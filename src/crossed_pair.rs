@@ -1,4 +1,4 @@
-use crate::{addresses::WETH_ADDRESS, bindings::flash_bots_uniswap_query::FlashBotsUniswapQuery};
+use crate::{addresses::WETH_ADDRESS, bindings::uniswap_reserves_query::UniswapReservesQuery};
 use ethers::{abi::ethereum_types::U512, prelude::*};
 
 #[derive(Debug)]
@@ -6,7 +6,7 @@ pub struct CrossedPairManager<'a, M>
 where
     M: Middleware,
 {
-    flash_query_contract: &'a FlashBotsUniswapQuery<M>,
+    flash_query_contract: &'a UniswapReservesQuery<M>,
     markets: Vec<TokenMarket<'a>>,
 }
 
@@ -16,7 +16,7 @@ where
 {
     pub fn new(
         grouped_pairs: &'a [(H160, Vec<[H160; 3]>)],
-        flash_query_contract: &'a FlashBotsUniswapQuery<M>,
+        flash_query_contract: &'a UniswapReservesQuery<M>,
     ) -> Self {
         let pairs = grouped_pairs
             .iter()

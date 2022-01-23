@@ -4,14 +4,14 @@ use std::sync::Arc;
 use crate::{
     addresses::WETH_ADDRESS,
     bindings::{
-        flash_bots_uniswap_query::FlashBotsUniswapQuery, i_uniswap_v2_factory::IUniswapV2Factory,
+        i_uniswap_v2_factory::IUniswapV2Factory, uniswap_reserves_query::UniswapReservesQuery,
     },
 };
 use ethers::prelude::*;
 
 pub async fn get_markets_by_token<M>(
     factory_addresses: Vec<Address>,
-    flash_query_contract: &FlashBotsUniswapQuery<M>,
+    flash_query_contract: &UniswapReservesQuery<M>,
     client: Arc<M>,
 ) -> Vec<(H160, Vec<[H160; 3]>)>
 where
@@ -76,7 +76,7 @@ where
 
 pub struct DexFactory<'a, M> {
     factory_contract: IUniswapV2Factory<M>,
-    flash_query_contract: &'a FlashBotsUniswapQuery<M>,
+    flash_query_contract: &'a UniswapReservesQuery<M>,
 }
 
 // This should hold Factory of each Dex
@@ -87,7 +87,7 @@ where
 {
     pub fn new(
         pair_address: Address,
-        flash_query_contract: &'a FlashBotsUniswapQuery<M>,
+        flash_query_contract: &'a UniswapReservesQuery<M>,
         client: Arc<M>,
     ) -> Self {
         // let pair_address = pair_address.parse::<Address>().expect("Invalid Address");

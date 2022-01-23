@@ -10,7 +10,7 @@ use ethers::{
 
 use dotenv::dotenv;
 use forge_test::{
-    addresses::*, bindings::flash_bots_uniswap_query::FlashBotsUniswapQuery,
+    addresses::*, bindings::uniswap_reserves_query::UniswapReservesQuery,
     crossed_pair::CrossedPairManager, dex_factory::get_markets_by_token,
 };
 use futures::{future, StreamExt};
@@ -44,7 +44,7 @@ async fn main() {
     .collect::<Vec<Address>>();
 
     let flash_query_address = LOOKUP_CONTRACT_ADDRESS.parse::<Address>().unwrap();
-    let flash_query_contract = FlashBotsUniswapQuery::new(flash_query_address, client.clone());
+    let flash_query_contract = UniswapReservesQuery::new(flash_query_address, client.clone());
     let grouped_pairs =
         get_markets_by_token(factory_addresses, &flash_query_contract, client.clone()).await;
 

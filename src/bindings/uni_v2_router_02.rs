@@ -1,6 +1,6 @@
-pub use uniswapv2router02_mod::*;
+pub use univ2router02_mod::*;
 #[allow(clippy::too_many_arguments)]
-mod uniswapv2router02_mod {
+mod univ2router02_mod {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -14,28 +14,28 @@ mod uniswapv2router02_mod {
         types::*,
     };
     use ethers::providers::Middleware;
-    #[doc = "UniswapV2Router02 was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
+    #[doc = "UniV2Router02 was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
-    pub static UNISWAPV2ROUTER02_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
+    pub static UNIV2ROUTER02_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"type\":\"constructor\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"_factory\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_WETH\",\"type\":\"address\"}]},{\"type\":\"function\",\"name\":\"WETH\",\"inputs\":[],\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"addLiquidity\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountADesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"addLiquidityETH\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"factory\",\"inputs\":[],\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getAmountIn\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"getAmountOut\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"getAmountsIn\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getAmountsOut\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"quote\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveB\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"removeLiquidity\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETH\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHWithPermit\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHWithPermitSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityWithPermit\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapETHForExactTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactETHForTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactETHForTokensSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForETH\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForETHSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForTokensSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapTokensForExactETH\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountInMax\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapTokensForExactTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountInMax\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"receive\"}]") . expect ("invalid abi")
+            serde_json :: from_str ("[{\"type\":\"function\",\"name\":\"WETH\",\"inputs\":[],\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"addLiquidity\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountADesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"addLiquidityETH\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"factory\",\"inputs\":[],\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getAmountIn\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"getAmountOut\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"getAmountsIn\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getAmountsOut\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"quote\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveB\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"removeLiquidity\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETH\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHWithPermit\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityETHWithPermitSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountTokenMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountETHMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountETH\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"removeLiquidityWithPermit\",\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"approveMax\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapETHForExactTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactETHForTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactETHForTokensSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForETH\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForETHSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapExactTokensForTokensSupportingFeeOnTransferTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapTokensForExactETH\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountInMax\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"swapTokensForExactTokens\",\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountInMax\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"constant\":false,\"stateMutability\":\"nonpayable\"},{\"type\":\"receive\"}]") . expect ("invalid abi")
         });
     #[derive(Clone)]
-    pub struct UniswapV2Router02<M>(ethers::contract::Contract<M>);
-    impl<M> std::ops::Deref for UniswapV2Router02<M> {
+    pub struct UniV2Router02<M>(ethers::contract::Contract<M>);
+    impl<M> std::ops::Deref for UniV2Router02<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M: ethers::providers::Middleware> std::fmt::Debug for UniswapV2Router02<M> {
+    impl<M: ethers::providers::Middleware> std::fmt::Debug for UniV2Router02<M> {
         fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-            f.debug_tuple(stringify!(UniswapV2Router02))
+            f.debug_tuple(stringify!(UniV2Router02))
                 .field(&self.address())
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> UniswapV2Router02<M> {
+    impl<'a, M: ethers::providers::Middleware> UniV2Router02<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -43,11 +43,8 @@ mod uniswapv2router02_mod {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            let contract = ethers::contract::Contract::new(
-                address.into(),
-                UNISWAPV2ROUTER02_ABI.clone(),
-                client,
-            );
+            let contract =
+                ethers::contract::Contract::new(address.into(), UNIV2ROUTER02_ABI.clone(), client);
             Self(contract)
         }
         #[doc = "Calls the contract's `WETH` (0xad5c4648) function"]
@@ -991,7 +988,7 @@ mod uniswapv2router02_mod {
         pub deadline: ethers::core::types::U256,
     }
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
-    pub enum UniswapV2Router02Calls {
+    pub enum UniV2Router02Calls {
         Weth(WethCall),
         AddLiquidity(AddLiquidityCall),
         AddLiquidityETH(AddLiquidityETHCall),
@@ -1027,256 +1024,324 @@ mod uniswapv2router02_mod {
         SwapTokensForExactETH(SwapTokensForExactETHCall),
         SwapTokensForExactTokens(SwapTokensForExactTokensCall),
     }
-    impl ethers::core::abi::AbiDecode for UniswapV2Router02Calls {
+    impl ethers::core::abi::AbiDecode for UniV2Router02Calls {
         fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <WethCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
-                return Ok(UniswapV2Router02Calls::Weth(decoded));
+                return Ok(UniV2Router02Calls::Weth(decoded));
             }
             if let Ok(decoded) =
                 <AddLiquidityCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::AddLiquidity(decoded));
+                return Ok(UniV2Router02Calls::AddLiquidity(decoded));
             }
             if let Ok(decoded) =
                 <AddLiquidityETHCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::AddLiquidityETH(decoded));
+                return Ok(UniV2Router02Calls::AddLiquidityETH(decoded));
             }
             if let Ok(decoded) =
                 <FactoryCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::Factory(decoded));
+                return Ok(UniV2Router02Calls::Factory(decoded));
             }
             if let Ok(decoded) =
                 <GetAmountInCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::GetAmountIn(decoded));
+                return Ok(UniV2Router02Calls::GetAmountIn(decoded));
             }
             if let Ok(decoded) =
                 <GetAmountOutCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::GetAmountOut(decoded));
+                return Ok(UniV2Router02Calls::GetAmountOut(decoded));
             }
             if let Ok(decoded) =
                 <GetAmountsInCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::GetAmountsIn(decoded));
+                return Ok(UniV2Router02Calls::GetAmountsIn(decoded));
             }
             if let Ok(decoded) =
                 <GetAmountsOutCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::GetAmountsOut(decoded));
+                return Ok(UniV2Router02Calls::GetAmountsOut(decoded));
             }
             if let Ok(decoded) = <QuoteCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::Quote(decoded));
+                return Ok(UniV2Router02Calls::Quote(decoded));
             }
             if let Ok(decoded) =
                 <RemoveLiquidityCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::RemoveLiquidity(decoded));
+                return Ok(UniV2Router02Calls::RemoveLiquidity(decoded));
             }
             if let Ok(decoded) =
                 <RemoveLiquidityETHCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::RemoveLiquidityETH(decoded));
+                return Ok(UniV2Router02Calls::RemoveLiquidityETH(decoded));
             }
-            if let Ok (decoded) = < RemoveLiquidityETHSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniswapV2Router02Calls :: RemoveLiquidityETHSupportingFeeOnTransferTokens (decoded)) }
+            if let Ok (decoded) = < RemoveLiquidityETHSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniV2Router02Calls :: RemoveLiquidityETHSupportingFeeOnTransferTokens (decoded)) }
             if let Ok(decoded) =
                 <RemoveLiquidityETHWithPermitCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
                 )
             {
-                return Ok(UniswapV2Router02Calls::RemoveLiquidityETHWithPermit(
-                    decoded,
-                ));
+                return Ok(UniV2Router02Calls::RemoveLiquidityETHWithPermit(decoded));
             }
-            if let Ok (decoded) = < RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniswapV2Router02Calls :: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens (decoded)) }
+            if let Ok (decoded) = < RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniV2Router02Calls :: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens (decoded)) }
             if let Ok(decoded) =
                 <RemoveLiquidityWithPermitCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
                 )
             {
-                return Ok(UniswapV2Router02Calls::RemoveLiquidityWithPermit(decoded));
+                return Ok(UniV2Router02Calls::RemoveLiquidityWithPermit(decoded));
             }
             if let Ok(decoded) =
                 <SwapETHForExactTokensCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::SwapETHForExactTokens(decoded));
+                return Ok(UniV2Router02Calls::SwapETHForExactTokens(decoded));
             }
             if let Ok(decoded) =
                 <SwapExactETHForTokensCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::SwapExactETHForTokens(decoded));
+                return Ok(UniV2Router02Calls::SwapExactETHForTokens(decoded));
             }
-            if let Ok (decoded) = < SwapExactETHForTokensSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniswapV2Router02Calls :: SwapExactETHForTokensSupportingFeeOnTransferTokens (decoded)) }
+            if let Ok (decoded) = < SwapExactETHForTokensSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniV2Router02Calls :: SwapExactETHForTokensSupportingFeeOnTransferTokens (decoded)) }
             if let Ok(decoded) =
                 <SwapExactTokensForETHCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::SwapExactTokensForETH(decoded));
+                return Ok(UniV2Router02Calls::SwapExactTokensForETH(decoded));
             }
-            if let Ok (decoded) = < SwapExactTokensForETHSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniswapV2Router02Calls :: SwapExactTokensForETHSupportingFeeOnTransferTokens (decoded)) }
+            if let Ok (decoded) = < SwapExactTokensForETHSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniV2Router02Calls :: SwapExactTokensForETHSupportingFeeOnTransferTokens (decoded)) }
             if let Ok(decoded) =
                 <SwapExactTokensForTokensCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
                 )
             {
-                return Ok(UniswapV2Router02Calls::SwapExactTokensForTokens(decoded));
+                return Ok(UniV2Router02Calls::SwapExactTokensForTokens(decoded));
             }
-            if let Ok (decoded) = < SwapExactTokensForTokensSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniswapV2Router02Calls :: SwapExactTokensForTokensSupportingFeeOnTransferTokens (decoded)) }
+            if let Ok (decoded) = < SwapExactTokensForTokensSupportingFeeOnTransferTokensCall as ethers :: core :: abi :: AbiDecode > :: decode (data . as_ref ()) { return Ok (UniV2Router02Calls :: SwapExactTokensForTokensSupportingFeeOnTransferTokens (decoded)) }
             if let Ok(decoded) =
                 <SwapTokensForExactETHCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(UniswapV2Router02Calls::SwapTokensForExactETH(decoded));
+                return Ok(UniV2Router02Calls::SwapTokensForExactETH(decoded));
             }
             if let Ok(decoded) =
                 <SwapTokensForExactTokensCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
                 )
             {
-                return Ok(UniswapV2Router02Calls::SwapTokensForExactTokens(decoded));
+                return Ok(UniV2Router02Calls::SwapTokensForExactTokens(decoded));
             }
             Err(ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ethers::core::abi::AbiEncode for UniswapV2Router02Calls {
+    impl ethers::core::abi::AbiEncode for UniV2Router02Calls {
         fn encode(self) -> Vec<u8> {
-            match self { UniswapV2Router02Calls :: Weth (element) => element . encode () , UniswapV2Router02Calls :: AddLiquidity (element) => element . encode () , UniswapV2Router02Calls :: AddLiquidityETH (element) => element . encode () , UniswapV2Router02Calls :: Factory (element) => element . encode () , UniswapV2Router02Calls :: GetAmountIn (element) => element . encode () , UniswapV2Router02Calls :: GetAmountOut (element) => element . encode () , UniswapV2Router02Calls :: GetAmountsIn (element) => element . encode () , UniswapV2Router02Calls :: GetAmountsOut (element) => element . encode () , UniswapV2Router02Calls :: Quote (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidity (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidityETH (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidityETHSupportingFeeOnTransferTokens (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidityETHWithPermit (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens (element) => element . encode () , UniswapV2Router02Calls :: RemoveLiquidityWithPermit (element) => element . encode () , UniswapV2Router02Calls :: SwapETHForExactTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapExactETHForTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapExactETHForTokensSupportingFeeOnTransferTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapExactTokensForETH (element) => element . encode () , UniswapV2Router02Calls :: SwapExactTokensForETHSupportingFeeOnTransferTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapExactTokensForTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapExactTokensForTokensSupportingFeeOnTransferTokens (element) => element . encode () , UniswapV2Router02Calls :: SwapTokensForExactETH (element) => element . encode () , UniswapV2Router02Calls :: SwapTokensForExactTokens (element) => element . encode () }
+            match self {
+                UniV2Router02Calls::Weth(element) => element.encode(),
+                UniV2Router02Calls::AddLiquidity(element) => element.encode(),
+                UniV2Router02Calls::AddLiquidityETH(element) => element.encode(),
+                UniV2Router02Calls::Factory(element) => element.encode(),
+                UniV2Router02Calls::GetAmountIn(element) => element.encode(),
+                UniV2Router02Calls::GetAmountOut(element) => element.encode(),
+                UniV2Router02Calls::GetAmountsIn(element) => element.encode(),
+                UniV2Router02Calls::GetAmountsOut(element) => element.encode(),
+                UniV2Router02Calls::Quote(element) => element.encode(),
+                UniV2Router02Calls::RemoveLiquidity(element) => element.encode(),
+                UniV2Router02Calls::RemoveLiquidityETH(element) => element.encode(),
+                UniV2Router02Calls::RemoveLiquidityETHSupportingFeeOnTransferTokens(element) => {
+                    element.encode()
+                }
+                UniV2Router02Calls::RemoveLiquidityETHWithPermit(element) => element.encode(),
+                UniV2Router02Calls::RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens(
+                    element,
+                ) => element.encode(),
+                UniV2Router02Calls::RemoveLiquidityWithPermit(element) => element.encode(),
+                UniV2Router02Calls::SwapETHForExactTokens(element) => element.encode(),
+                UniV2Router02Calls::SwapExactETHForTokens(element) => element.encode(),
+                UniV2Router02Calls::SwapExactETHForTokensSupportingFeeOnTransferTokens(element) => {
+                    element.encode()
+                }
+                UniV2Router02Calls::SwapExactTokensForETH(element) => element.encode(),
+                UniV2Router02Calls::SwapExactTokensForETHSupportingFeeOnTransferTokens(element) => {
+                    element.encode()
+                }
+                UniV2Router02Calls::SwapExactTokensForTokens(element) => element.encode(),
+                UniV2Router02Calls::SwapExactTokensForTokensSupportingFeeOnTransferTokens(
+                    element,
+                ) => element.encode(),
+                UniV2Router02Calls::SwapTokensForExactETH(element) => element.encode(),
+                UniV2Router02Calls::SwapTokensForExactTokens(element) => element.encode(),
+            }
         }
     }
-    impl ::std::fmt::Display for UniswapV2Router02Calls {
+    impl ::std::fmt::Display for UniV2Router02Calls {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-            match self { UniswapV2Router02Calls :: Weth (element) => element . fmt (f) , UniswapV2Router02Calls :: AddLiquidity (element) => element . fmt (f) , UniswapV2Router02Calls :: AddLiquidityETH (element) => element . fmt (f) , UniswapV2Router02Calls :: Factory (element) => element . fmt (f) , UniswapV2Router02Calls :: GetAmountIn (element) => element . fmt (f) , UniswapV2Router02Calls :: GetAmountOut (element) => element . fmt (f) , UniswapV2Router02Calls :: GetAmountsIn (element) => element . fmt (f) , UniswapV2Router02Calls :: GetAmountsOut (element) => element . fmt (f) , UniswapV2Router02Calls :: Quote (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidity (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidityETH (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidityETHSupportingFeeOnTransferTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidityETHWithPermit (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: RemoveLiquidityWithPermit (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapETHForExactTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactETHForTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactETHForTokensSupportingFeeOnTransferTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactTokensForETH (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactTokensForETHSupportingFeeOnTransferTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactTokensForTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapExactTokensForTokensSupportingFeeOnTransferTokens (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapTokensForExactETH (element) => element . fmt (f) , UniswapV2Router02Calls :: SwapTokensForExactTokens (element) => element . fmt (f) }
+            match self {
+                UniV2Router02Calls::Weth(element) => element.fmt(f),
+                UniV2Router02Calls::AddLiquidity(element) => element.fmt(f),
+                UniV2Router02Calls::AddLiquidityETH(element) => element.fmt(f),
+                UniV2Router02Calls::Factory(element) => element.fmt(f),
+                UniV2Router02Calls::GetAmountIn(element) => element.fmt(f),
+                UniV2Router02Calls::GetAmountOut(element) => element.fmt(f),
+                UniV2Router02Calls::GetAmountsIn(element) => element.fmt(f),
+                UniV2Router02Calls::GetAmountsOut(element) => element.fmt(f),
+                UniV2Router02Calls::Quote(element) => element.fmt(f),
+                UniV2Router02Calls::RemoveLiquidity(element) => element.fmt(f),
+                UniV2Router02Calls::RemoveLiquidityETH(element) => element.fmt(f),
+                UniV2Router02Calls::RemoveLiquidityETHSupportingFeeOnTransferTokens(element) => {
+                    element.fmt(f)
+                }
+                UniV2Router02Calls::RemoveLiquidityETHWithPermit(element) => element.fmt(f),
+                UniV2Router02Calls::RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens(
+                    element,
+                ) => element.fmt(f),
+                UniV2Router02Calls::RemoveLiquidityWithPermit(element) => element.fmt(f),
+                UniV2Router02Calls::SwapETHForExactTokens(element) => element.fmt(f),
+                UniV2Router02Calls::SwapExactETHForTokens(element) => element.fmt(f),
+                UniV2Router02Calls::SwapExactETHForTokensSupportingFeeOnTransferTokens(element) => {
+                    element.fmt(f)
+                }
+                UniV2Router02Calls::SwapExactTokensForETH(element) => element.fmt(f),
+                UniV2Router02Calls::SwapExactTokensForETHSupportingFeeOnTransferTokens(element) => {
+                    element.fmt(f)
+                }
+                UniV2Router02Calls::SwapExactTokensForTokens(element) => element.fmt(f),
+                UniV2Router02Calls::SwapExactTokensForTokensSupportingFeeOnTransferTokens(
+                    element,
+                ) => element.fmt(f),
+                UniV2Router02Calls::SwapTokensForExactETH(element) => element.fmt(f),
+                UniV2Router02Calls::SwapTokensForExactTokens(element) => element.fmt(f),
+            }
         }
     }
-    impl ::std::convert::From<WethCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<WethCall> for UniV2Router02Calls {
         fn from(var: WethCall) -> Self {
-            UniswapV2Router02Calls::Weth(var)
+            UniV2Router02Calls::Weth(var)
         }
     }
-    impl ::std::convert::From<AddLiquidityCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<AddLiquidityCall> for UniV2Router02Calls {
         fn from(var: AddLiquidityCall) -> Self {
-            UniswapV2Router02Calls::AddLiquidity(var)
+            UniV2Router02Calls::AddLiquidity(var)
         }
     }
-    impl ::std::convert::From<AddLiquidityETHCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<AddLiquidityETHCall> for UniV2Router02Calls {
         fn from(var: AddLiquidityETHCall) -> Self {
-            UniswapV2Router02Calls::AddLiquidityETH(var)
+            UniV2Router02Calls::AddLiquidityETH(var)
         }
     }
-    impl ::std::convert::From<FactoryCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<FactoryCall> for UniV2Router02Calls {
         fn from(var: FactoryCall) -> Self {
-            UniswapV2Router02Calls::Factory(var)
+            UniV2Router02Calls::Factory(var)
         }
     }
-    impl ::std::convert::From<GetAmountInCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<GetAmountInCall> for UniV2Router02Calls {
         fn from(var: GetAmountInCall) -> Self {
-            UniswapV2Router02Calls::GetAmountIn(var)
+            UniV2Router02Calls::GetAmountIn(var)
         }
     }
-    impl ::std::convert::From<GetAmountOutCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<GetAmountOutCall> for UniV2Router02Calls {
         fn from(var: GetAmountOutCall) -> Self {
-            UniswapV2Router02Calls::GetAmountOut(var)
+            UniV2Router02Calls::GetAmountOut(var)
         }
     }
-    impl ::std::convert::From<GetAmountsInCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<GetAmountsInCall> for UniV2Router02Calls {
         fn from(var: GetAmountsInCall) -> Self {
-            UniswapV2Router02Calls::GetAmountsIn(var)
+            UniV2Router02Calls::GetAmountsIn(var)
         }
     }
-    impl ::std::convert::From<GetAmountsOutCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<GetAmountsOutCall> for UniV2Router02Calls {
         fn from(var: GetAmountsOutCall) -> Self {
-            UniswapV2Router02Calls::GetAmountsOut(var)
+            UniV2Router02Calls::GetAmountsOut(var)
         }
     }
-    impl ::std::convert::From<QuoteCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<QuoteCall> for UniV2Router02Calls {
         fn from(var: QuoteCall) -> Self {
-            UniswapV2Router02Calls::Quote(var)
+            UniV2Router02Calls::Quote(var)
         }
     }
-    impl ::std::convert::From<RemoveLiquidityCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<RemoveLiquidityCall> for UniV2Router02Calls {
         fn from(var: RemoveLiquidityCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidity(var)
+            UniV2Router02Calls::RemoveLiquidity(var)
         }
     }
-    impl ::std::convert::From<RemoveLiquidityETHCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<RemoveLiquidityETHCall> for UniV2Router02Calls {
         fn from(var: RemoveLiquidityETHCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidityETH(var)
+            UniV2Router02Calls::RemoveLiquidityETH(var)
         }
     }
     impl ::std::convert::From<RemoveLiquidityETHSupportingFeeOnTransferTokensCall>
-        for UniswapV2Router02Calls
+        for UniV2Router02Calls
     {
         fn from(var: RemoveLiquidityETHSupportingFeeOnTransferTokensCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidityETHSupportingFeeOnTransferTokens(var)
+            UniV2Router02Calls::RemoveLiquidityETHSupportingFeeOnTransferTokens(var)
         }
     }
-    impl ::std::convert::From<RemoveLiquidityETHWithPermitCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<RemoveLiquidityETHWithPermitCall> for UniV2Router02Calls {
         fn from(var: RemoveLiquidityETHWithPermitCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidityETHWithPermit(var)
+            UniV2Router02Calls::RemoveLiquidityETHWithPermit(var)
         }
     }
     impl ::std::convert::From<RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensCall>
-        for UniswapV2Router02Calls
+        for UniV2Router02Calls
     {
         fn from(var: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens(var)
+            UniV2Router02Calls::RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens(var)
         }
     }
-    impl ::std::convert::From<RemoveLiquidityWithPermitCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<RemoveLiquidityWithPermitCall> for UniV2Router02Calls {
         fn from(var: RemoveLiquidityWithPermitCall) -> Self {
-            UniswapV2Router02Calls::RemoveLiquidityWithPermit(var)
+            UniV2Router02Calls::RemoveLiquidityWithPermit(var)
         }
     }
-    impl ::std::convert::From<SwapETHForExactTokensCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapETHForExactTokensCall> for UniV2Router02Calls {
         fn from(var: SwapETHForExactTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapETHForExactTokens(var)
+            UniV2Router02Calls::SwapETHForExactTokens(var)
         }
     }
-    impl ::std::convert::From<SwapExactETHForTokensCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapExactETHForTokensCall> for UniV2Router02Calls {
         fn from(var: SwapExactETHForTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapExactETHForTokens(var)
+            UniV2Router02Calls::SwapExactETHForTokens(var)
         }
     }
     impl ::std::convert::From<SwapExactETHForTokensSupportingFeeOnTransferTokensCall>
-        for UniswapV2Router02Calls
+        for UniV2Router02Calls
     {
         fn from(var: SwapExactETHForTokensSupportingFeeOnTransferTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapExactETHForTokensSupportingFeeOnTransferTokens(var)
+            UniV2Router02Calls::SwapExactETHForTokensSupportingFeeOnTransferTokens(var)
         }
     }
-    impl ::std::convert::From<SwapExactTokensForETHCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapExactTokensForETHCall> for UniV2Router02Calls {
         fn from(var: SwapExactTokensForETHCall) -> Self {
-            UniswapV2Router02Calls::SwapExactTokensForETH(var)
+            UniV2Router02Calls::SwapExactTokensForETH(var)
         }
     }
     impl ::std::convert::From<SwapExactTokensForETHSupportingFeeOnTransferTokensCall>
-        for UniswapV2Router02Calls
+        for UniV2Router02Calls
     {
         fn from(var: SwapExactTokensForETHSupportingFeeOnTransferTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapExactTokensForETHSupportingFeeOnTransferTokens(var)
+            UniV2Router02Calls::SwapExactTokensForETHSupportingFeeOnTransferTokens(var)
         }
     }
-    impl ::std::convert::From<SwapExactTokensForTokensCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapExactTokensForTokensCall> for UniV2Router02Calls {
         fn from(var: SwapExactTokensForTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapExactTokensForTokens(var)
+            UniV2Router02Calls::SwapExactTokensForTokens(var)
         }
     }
     impl ::std::convert::From<SwapExactTokensForTokensSupportingFeeOnTransferTokensCall>
-        for UniswapV2Router02Calls
+        for UniV2Router02Calls
     {
         fn from(var: SwapExactTokensForTokensSupportingFeeOnTransferTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapExactTokensForTokensSupportingFeeOnTransferTokens(var)
+            UniV2Router02Calls::SwapExactTokensForTokensSupportingFeeOnTransferTokens(var)
         }
     }
-    impl ::std::convert::From<SwapTokensForExactETHCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapTokensForExactETHCall> for UniV2Router02Calls {
         fn from(var: SwapTokensForExactETHCall) -> Self {
-            UniswapV2Router02Calls::SwapTokensForExactETH(var)
+            UniV2Router02Calls::SwapTokensForExactETH(var)
         }
     }
-    impl ::std::convert::From<SwapTokensForExactTokensCall> for UniswapV2Router02Calls {
+    impl ::std::convert::From<SwapTokensForExactTokensCall> for UniV2Router02Calls {
         fn from(var: SwapTokensForExactTokensCall) -> Self {
-            UniswapV2Router02Calls::SwapTokensForExactTokens(var)
+            UniV2Router02Calls::SwapTokensForExactTokens(var)
         }
     }
 }

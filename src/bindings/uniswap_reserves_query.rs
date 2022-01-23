@@ -1,6 +1,6 @@
-pub use flashbotsuniswapquery_mod::*;
+pub use uniswapreservesquery_mod::*;
 #[allow(clippy::too_many_arguments)]
-mod flashbotsuniswapquery_mod {
+mod uniswapreservesquery_mod {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -14,28 +14,28 @@ mod flashbotsuniswapquery_mod {
         types::*,
     };
     use ethers::providers::Middleware;
-    #[doc = "FlashBotsUniswapQuery was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
+    #[doc = "UniswapReservesQuery was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
-    pub static FLASHBOTSUNISWAPQUERY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
+    pub static UNISWAPRESERVESQUERY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
             serde_json :: from_str ("[{\"type\":\"function\",\"name\":\"getPairsByIndexRange\",\"inputs\":[{\"internalType\":\"contract IUniswapV2Factory\",\"name\":\"_uniswapFactory\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_stop\",\"type\":\"uint256\"}],\"outputs\":[{\"internalType\":\"address[3][]\",\"name\":\"\",\"type\":\"address[3][]\"}],\"constant\":false,\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getReservesByPairs\",\"inputs\":[{\"internalType\":\"contract IUniswapV2Pair[]\",\"name\":\"_pairs\",\"type\":\"address[]\"}],\"outputs\":[{\"internalType\":\"uint256[3][]\",\"name\":\"\",\"type\":\"uint256[3][]\"}],\"constant\":false,\"stateMutability\":\"view\"}]") . expect ("invalid abi")
         });
     #[derive(Clone)]
-    pub struct FlashBotsUniswapQuery<M>(ethers::contract::Contract<M>);
-    impl<M> std::ops::Deref for FlashBotsUniswapQuery<M> {
+    pub struct UniswapReservesQuery<M>(ethers::contract::Contract<M>);
+    impl<M> std::ops::Deref for UniswapReservesQuery<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M: ethers::providers::Middleware> std::fmt::Debug for FlashBotsUniswapQuery<M> {
+    impl<M: ethers::providers::Middleware> std::fmt::Debug for UniswapReservesQuery<M> {
         fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-            f.debug_tuple(stringify!(FlashBotsUniswapQuery))
+            f.debug_tuple(stringify!(UniswapReservesQuery))
                 .field(&self.address())
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> FlashBotsUniswapQuery<M> {
+    impl<'a, M: ethers::providers::Middleware> UniswapReservesQuery<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -45,7 +45,7 @@ mod flashbotsuniswapquery_mod {
         ) -> Self {
             let contract = ethers::contract::Contract::new(
                 address.into(),
-                FLASHBOTSUNISWAPQUERY_ABI.clone(),
+                UNISWAPRESERVESQUERY_ABI.clone(),
                 client,
             );
             Self(contract)
@@ -111,49 +111,49 @@ mod flashbotsuniswapquery_mod {
         pub pairs: ::std::vec::Vec<ethers::core::types::Address>,
     }
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
-    pub enum FlashBotsUniswapQueryCalls {
+    pub enum UniswapReservesQueryCalls {
         GetPairsByIndexRange(GetPairsByIndexRangeCall),
         GetReservesByPairs(GetReservesByPairsCall),
     }
-    impl ethers::core::abi::AbiDecode for FlashBotsUniswapQueryCalls {
+    impl ethers::core::abi::AbiDecode for UniswapReservesQueryCalls {
         fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetPairsByIndexRangeCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(FlashBotsUniswapQueryCalls::GetPairsByIndexRange(decoded));
+                return Ok(UniswapReservesQueryCalls::GetPairsByIndexRange(decoded));
             }
             if let Ok(decoded) =
                 <GetReservesByPairsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(FlashBotsUniswapQueryCalls::GetReservesByPairs(decoded));
+                return Ok(UniswapReservesQueryCalls::GetReservesByPairs(decoded));
             }
             Err(ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ethers::core::abi::AbiEncode for FlashBotsUniswapQueryCalls {
+    impl ethers::core::abi::AbiEncode for UniswapReservesQueryCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                FlashBotsUniswapQueryCalls::GetPairsByIndexRange(element) => element.encode(),
-                FlashBotsUniswapQueryCalls::GetReservesByPairs(element) => element.encode(),
+                UniswapReservesQueryCalls::GetPairsByIndexRange(element) => element.encode(),
+                UniswapReservesQueryCalls::GetReservesByPairs(element) => element.encode(),
             }
         }
     }
-    impl ::std::fmt::Display for FlashBotsUniswapQueryCalls {
+    impl ::std::fmt::Display for UniswapReservesQueryCalls {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
             match self {
-                FlashBotsUniswapQueryCalls::GetPairsByIndexRange(element) => element.fmt(f),
-                FlashBotsUniswapQueryCalls::GetReservesByPairs(element) => element.fmt(f),
+                UniswapReservesQueryCalls::GetPairsByIndexRange(element) => element.fmt(f),
+                UniswapReservesQueryCalls::GetReservesByPairs(element) => element.fmt(f),
             }
         }
     }
-    impl ::std::convert::From<GetPairsByIndexRangeCall> for FlashBotsUniswapQueryCalls {
+    impl ::std::convert::From<GetPairsByIndexRangeCall> for UniswapReservesQueryCalls {
         fn from(var: GetPairsByIndexRangeCall) -> Self {
-            FlashBotsUniswapQueryCalls::GetPairsByIndexRange(var)
+            UniswapReservesQueryCalls::GetPairsByIndexRange(var)
         }
     }
-    impl ::std::convert::From<GetReservesByPairsCall> for FlashBotsUniswapQueryCalls {
+    impl ::std::convert::From<GetReservesByPairsCall> for UniswapReservesQueryCalls {
         fn from(var: GetReservesByPairsCall) -> Self {
-            FlashBotsUniswapQueryCalls::GetReservesByPairs(var)
+            UniswapReservesQueryCalls::GetReservesByPairs(var)
         }
     }
 }
